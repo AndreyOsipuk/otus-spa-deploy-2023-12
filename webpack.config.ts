@@ -6,7 +6,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 type Mode = "none" | "development" | "production" | undefined;
 
 const NODE_ENV: Mode = process.env.NODE_ENV as Mode;
-const PREFIX = 'otus-spa-deploy-2023-12'
+const PREFIX = '/otus-spa-deploy-2023-12'
 
 const config: webpack.Configuration = {
   entry: "./src/index.ts",
