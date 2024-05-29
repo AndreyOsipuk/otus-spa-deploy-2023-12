@@ -17,7 +17,7 @@ const config: webpack.Configuration = {
     environment: {
       arrowFunction: false,
     },
-    // publicPath: '/',
+    publicPath: '/',
   },
   resolve: {
     extensions: [".js", ".ts"],
