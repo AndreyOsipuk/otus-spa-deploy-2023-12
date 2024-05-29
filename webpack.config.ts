@@ -6,7 +6,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 type Mode = "none" | "development" | "production" | undefined;
 
 const NODE_ENV: Mode = process.env.NODE_ENV as Mode;
-const PREFIX = '/otus-spa-deploy-2023-12'
+// const PREFIX =  process.env.NODE_ENV == "production" ? '/otus-spa-deploy-2023-12' : ''
 
 const config: webpack.Configuration = {
   entry: "./src/index.ts",
@@ -17,7 +17,7 @@ const config: webpack.Configuration = {
     environment: {
       arrowFunction: false,
     },
-    publicPath: process.env.NODE_ENV == "production" ? PREFIX :'/',
+    publicPath: "/",
   },
   resolve: {
     extensions: [".js", ".ts"],
@@ -43,10 +43,10 @@ const config: webpack.Configuration = {
       template: "public/index.html",
       filename: "404.html",
     }),
-    new webpack.DefinePlugin({
-      IS_PRODUCTION: NODE_ENV == "production",
-      // PREFIX: JSON.stringify(PREFIX),
-    }),
+    // new webpack.DefinePlugin({
+    //   IS_PRODUCTION: NODE_ENV == "production",
+    //   PREFIX: JSON.stringify(PREFIX),
+    // }),
   ],
   devServer: {
     compress: true,
