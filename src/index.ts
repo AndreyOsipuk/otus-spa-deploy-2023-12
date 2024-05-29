@@ -1,3 +1,5 @@
+const PREFIX = '/otus-spa-deploy-2023-12'
+
 function render(hash?: string) {
   const href = window.location.href;
 

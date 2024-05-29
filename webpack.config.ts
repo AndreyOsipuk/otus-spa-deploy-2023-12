@@ -17,7 +17,7 @@ const config: webpack.Configuration = {
     environment: {
       arrowFunction: false,
     },
-    publicPath: '/',
+    // publicPath: '/',
   },
   resolve: {
     extensions: [".js", ".ts"],
@@ -45,7 +45,7 @@ const config: webpack.Configuration = {
     // }),
     new webpack.DefinePlugin({
       IS_PRODUCTION: NODE_ENV == "production",
-      PREFIX: JSON.stringify(PREFIX),
+      // PREFIX: JSON.stringify(PREFIX),
     }),
   ],
   devServer: {
