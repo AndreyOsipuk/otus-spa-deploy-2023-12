@@ -12,6 +12,7 @@ function render(hash?: string) {
 
 if (IS_PRODUCTION) {
   document.querySelectorAll("a").forEach((link) => {
+    console.log(PREFIX, link.pathname)
     link.href = PREFIX + link.pathname;
   });
 }
