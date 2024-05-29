@@ -44,7 +44,7 @@ const config: webpack.Configuration = {
     //   filename: "404.html",
     // }),
     new webpack.DefinePlugin({
-      PRODUCTION: NODE_ENV == "production",
+      IS_PRODUCTION: NODE_ENV == "production",
       PREFIX: JSON.stringify(PREFIX),
     }),
   ],

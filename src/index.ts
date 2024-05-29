@@ -8,7 +8,7 @@ function render(hash?: string) {
       : window.location.href;
 }
 
-if (PRODUCTION) {
+if (IS_PRODUCTION) {
   document.querySelectorAll("a").forEach((link) => {
     link.href = PREFIX + link.pathname;
   });
