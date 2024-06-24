@@ -1,14 +1,12 @@
 import "webpack-dev-server";
-import * as webpack from "webpack";
+import webpack, { Configuration } from "webpack";
 import { resolve } from "node:path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
-type Mode = "none" | "development" | "production" | undefined;
+const NODE_ENV = process.env.NODE_ENV as Configuration["mode"];
+const PREFIX =  process.env.NODE_ENV == "production" ? '/otus-spa-deploy-2023-12' : ''
 
-const NODE_ENV: Mode = process.env.NODE_ENV as Mode;
-// const PREFIX =  process.env.NODE_ENV == "production" ? '/otus-spa-deploy-2023-12' : ''
-
-const config: webpack.Configuration = {
+const config: Configuration = {
   entry: "./src/index.ts",
   output: {
     filename: "bundle.js",
@@ -17,7 +15,7 @@ const config: webpack.Configuration = {
     environment: {
       arrowFunction: false,
     },
-    publicPath: "/",
+    publicPath: PREFIX + "/",
   },
   resolve: {
     extensions: [".js", ".ts"],
@@ -43,10 +41,10 @@ const config: webpack.Configuration = {
       template: "public/index.html",
       filename: "404.html",
     }),
-    // new webpack.DefinePlugin({
-    //   IS_PRODUCTION: NODE_ENV == "production",
-    //   PREFIX: JSON.stringify(PREFIX),
-    // }),
+    new webpack.DefinePlugin({
+      IS_PRODUCTION: NODE_ENV == "production",
+      PREFIX: JSON.stringify(PREFIX),
+    }),
   ],
   devServer: {
     compress: true,

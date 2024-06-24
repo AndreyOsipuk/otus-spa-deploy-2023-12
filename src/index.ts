@@ -8,12 +8,12 @@ function render(hash?: string) {
       : window.location.href;
 }
 
-// if (IS_PRODUCTION) {
-//   document.querySelectorAll("a").forEach((link) => {
-//     console.log(PREFIX, link.pathname)
-//     link.href = PREFIX + link.pathname;
-//   });
-// }
+if (IS_PRODUCTION) {
+  document.querySelectorAll("a").forEach((link) => {
+    console.log(PREFIX, link.pathname)
+    link.href = PREFIX + link.pathname;
+  });
+}
 
 document.body.addEventListener("click", (ev) => {
   if ((ev.target as HTMLElement).matches("a")) {
